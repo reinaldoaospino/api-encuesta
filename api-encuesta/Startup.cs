@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Application;
+using AutoMapper;
 using Domain.Abstations;
 using Domain.Abstations.Infraestructure;
 using infraestructure;
@@ -35,7 +36,9 @@ namespace api_encuesta
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddModules();
+            services.AddAutoMapper(typeof(Startup));
             services.AddControllers();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
