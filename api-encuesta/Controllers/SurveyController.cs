@@ -2,6 +2,7 @@
 using AutoMapper;
 using Domain.Entities;
 using Domain.Interfaces.Application;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api_encuesta.Controllers
@@ -19,6 +20,7 @@ namespace api_encuesta.Controllers
             _mapper = mapper;
         }
 
+        [Authorize]
         [HttpPost]
         [Route("create")]
         public async void Create(SurveyRequest survey)

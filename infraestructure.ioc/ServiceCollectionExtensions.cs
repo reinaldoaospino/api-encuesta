@@ -8,6 +8,7 @@ using System.Text;
 using MongoDB.Driver;
 using Domain.Interfaces.Infraestructure;
 using infraestructure.Repositories;
+using infraestructure.Mappers;
 
 namespace infraestructure.ioc
 {
@@ -31,6 +32,7 @@ namespace infraestructure.ioc
         {
             services.AddScoped<ISurveyRepository, SurveyRepository>();
             services.AddScoped<IMongoService>(provider => new MongoService("Surveys", new MongoClient()));
+            services.AddScoped<ISurveyEntityMapper, SurveyEntityMapper>();
         }
 
         private static void ConfigureJwtToken(IServiceCollection services)

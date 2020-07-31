@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using MongoDB.Bson.Serialization.Attributes;
+﻿using System.Collections.Generic;
 
 namespace Domain.Entities
 {
     public class Survey
-    {   [BsonId]
-        public Guid Id { get; set; }
+    {
         public string Question { get; set; }
         public IEnumerable<SurveyOption> Options { get; set; }
     }

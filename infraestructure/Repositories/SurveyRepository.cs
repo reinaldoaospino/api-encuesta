@@ -1,24 +1,29 @@
 ﻿using Domain.Entities;
-using Domain.Interfaces.Infraestructure;
-using infraestructure.Interfaces;
 using System.Threading.Tasks;
+using infraestructure.Interfaces;
+using Domain.Interfaces.Infraestructure;
+using Microsoft.Extensions.Configuration;
 
 namespace infraestructure.Repositories
 {
     public class SurveyRepository : ISurveyRepository
     {
         private readonly IMongoService _service;
+        private readonly ISurveyEntityMapper _surveyMapper;
         private readonly string _tableName;
 
-        public SurveyRepository(IMongoService service)
+        public SurveyRepository(IMongoService service, ISurveyEntityMapper surveyMapper, IConfiguration configuration)
         {
             _service = service;
-            _tableName = "Survey"; //tomarlo del config
+            _surveyMapper = surveyMapper;
+            _tableName = configuration["AppSettings:surveyTable"];
         }
 
         public async Task Create(Survey survey)
         {
-           await _service.Create(_tableName, survey);
+            var suveryEntity = _surveyMapper.Map(survey);
+
+            await _service.Create(_tableName, suveryEntity);
         }
     }
 }
