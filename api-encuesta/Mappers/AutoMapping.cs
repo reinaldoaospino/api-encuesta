@@ -10,6 +10,7 @@ namespace api_encuesta.Mappers
         {
             CreateMap<TokenRequestModel, TokenRequest>().ReverseMap();
             CreateMap<TokenResponseModel, TokenResponse>().ReverseMap();
+            CreateMap<SurveyRequest, Survey>().ReverseMap();
         }
     }
 }

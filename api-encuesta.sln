@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{279700C7
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api-encuesta.test", "Api-encuesta.test\Api-encuesta.test.csproj", "{EF6F517A-9F26-4CE2-A1F6-0AC7CC9D9734}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.test", "Application.test\Application.test.csproj", "{1D64DC75-5DE8-4DA1-AE6A-A67846DB3538}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.test", "Application.test\Application.test.csproj", "{1D64DC75-5DE8-4DA1-AE6A-A67846DB3538}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

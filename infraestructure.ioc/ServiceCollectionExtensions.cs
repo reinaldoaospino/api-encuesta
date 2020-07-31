@@ -1,6 +1,7 @@
 ﻿using Application;
 using Domain.Abstations;
 using Domain.Abstations.Application;
+using Domain.Abstations.Infraestructure;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -14,12 +15,19 @@ namespace infraestructure.ioc
         {
             ConfigureApplicationModule(services);
             ConfigureJwtToken(services);
+            ConfigureInfraestructureModule(services);
         }
 
         private static void ConfigureApplicationModule(IServiceCollection services)
         {
             services.AddScoped<ITokenManager, TokenManager>();
             services.AddScoped<IJwtService, JwtService>();
+            services.AddScoped<ISurveyManager, SurveyManager>();
+        }
+
+        public static void ConfigureInfraestructureModule(IServiceCollection services)
+        {
+            services.AddScoped<IMongoDbServices>(x => new MongoDbServices("url"));
         }
 
         private static void ConfigureJwtToken(IServiceCollection services)
