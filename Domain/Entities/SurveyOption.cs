@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Domain.Entitys
+namespace Domain.Entities
 {
    public class SurveyOption
     {

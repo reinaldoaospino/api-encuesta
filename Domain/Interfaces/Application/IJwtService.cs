@@ -1,4 +1,4 @@
-﻿namespace Domain.Abstations.Application
+﻿namespace Domain.Interfaces.Application
 {
     public interface IJwtService
     {

@@ -2,9 +2,9 @@
 using System.Text;
 using System.Security.Claims;
 using System.Collections.Generic;
-using Domain.Abstations.Application;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
+using Domain.Interfaces.Application;
 
 namespace Application
 {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Domain.Entitys
+namespace Domain.Entities
 {
     public class TokenResponse
     {

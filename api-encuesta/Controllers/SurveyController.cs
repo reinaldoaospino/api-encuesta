@@ -1,7 +1,7 @@
 ﻿using api_encuesta.Models;
 using AutoMapper;
-using Domain.Abstations.Application;
-using Domain.Entitys;
+using Domain.Entities;
+using Domain.Interfaces.Application;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api_encuesta.Controllers

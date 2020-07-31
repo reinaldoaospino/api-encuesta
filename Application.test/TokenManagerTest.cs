@@ -1,8 +1,7 @@
+using Domain.Entities;
+using Domain.Interfaces.Application;
 using Moq;
 using Xunit;
-using Domain.Entitys;
-using Domain.Abstations;
-using Domain.Abstations.Application;
 
 namespace Application.test
 {

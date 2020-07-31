@@ -1,6 +1,5 @@
-﻿using Domain.Entitys;
-using Domain.Abstations;
-using Domain.Abstations.Application;
+﻿using Domain.Entities;
+using Domain.Interfaces.Application;
 
 namespace Application
 {

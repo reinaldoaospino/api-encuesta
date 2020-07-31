@@ -1,22 +1,22 @@
-﻿using Domain.Abstations.Application;
-using Domain.Abstations.Infraestructure;
-using Domain.Entitys;
+﻿using Domain.Entities;
+using Domain.Interfaces.Application;
+using Domain.Interfaces.Infraestructure;
 using System.Threading.Tasks;
 
 namespace Application
 {
     public class SurveyManager : ISurveyManager
     {
-        private readonly IMongoDbServices _mongoDbServices;
+        private readonly ISurveyRepository _repository;
 
-        public SurveyManager(IMongoDbServices mongoDbServices)
+        public SurveyManager(ISurveyRepository repository)
         {
-            _mongoDbServices = mongoDbServices;
+            _repository = repository;
         }
 
-        public async Task Create(Survey obj)
+        public async Task Create(Survey survey)
         {
-           await _mongoDbServices.Create("Survey", obj);
+            await _repository.Create(survey);
         }
     }
 }

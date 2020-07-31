@@ -1,7 +1,6 @@
-﻿using Domain.Entitys;
-using System.Threading.Tasks;
+﻿using Domain.Entities;
 
-namespace Domain.Abstations
+namespace Domain.Interfaces.Application
 {
     public interface ITokenManager
     {

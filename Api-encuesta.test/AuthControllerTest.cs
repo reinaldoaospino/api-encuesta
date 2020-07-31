@@ -1,11 +1,11 @@
 ﻿using Moq;
 using Xunit;
-using Domain.Entitys;
-using Domain.Abstations;
 using api_encuesta.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
 using api_encuesta.Models;
+using Domain.Interfaces.Application;
+using Domain.Entities;
 
 namespace Api_encuesta.test
 {

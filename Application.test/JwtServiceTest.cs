@@ -1,5 +1,5 @@
 ﻿using Xunit;
-using Domain.Abstations.Application;
+using Domain.Interfaces.Application;
 
 namespace Application.test
 {
