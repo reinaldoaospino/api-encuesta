@@ -1,3 +1,4 @@
+using Application.Managers;
 using Domain.Entities;
 using Domain.Interfaces.Application;
 using Moq;

@@ -1,7 +1,7 @@
 ﻿using Domain.Entities;
 using Domain.Interfaces.Application;
 
-namespace Application
+namespace Application.Managers
 {
     public class TokenManager : ITokenManager
     {

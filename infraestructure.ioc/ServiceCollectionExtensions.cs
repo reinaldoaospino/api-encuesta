@@ -9,6 +9,7 @@ using MongoDB.Driver;
 using Domain.Interfaces.Infraestructure;
 using infraestructure.Repositories;
 using infraestructure.Mappers;
+using Application.Managers;
 
 namespace infraestructure.ioc
 {
