@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api-encuesta.test", "Api-en
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.test", "Application.test\Application.test.csproj", "{1D64DC75-5DE8-4DA1-AE6A-A67846DB3538}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infraestructure.test", "Infraestructure.test\Infraestructure.test.csproj", "{F897CBC3-21E1-404E-AC65-5FBF1F8714EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infraestructure.test", "Infraestructure.test\Infraestructure.test.csproj", "{F897CBC3-21E1-404E-AC65-5FBF1F8714EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
