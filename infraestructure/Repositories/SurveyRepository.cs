@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
 using Domain.Entities;
 using System.Threading.Tasks;
-using infraestructure.Entities;
+using Infraestructure.Entities;
 using System.Collections.Generic;
-using infraestructure.Interfaces;
+using Infraestructure.Interfaces;
 using Domain.Interfaces.Infraestructure;
 using Microsoft.Extensions.Configuration;
 
-namespace infraestructure.Repositories
+namespace Infraestructure.Repositories
 {
     public class SurveyRepository : ISurveyRepository
     {

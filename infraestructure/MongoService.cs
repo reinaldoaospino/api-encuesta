@@ -1,10 +1,10 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
 using System.Threading.Tasks;
-using infraestructure.Interfaces;
 using System.Collections.Generic;
+using Infraestructure.Interfaces;
 
-namespace infraestructure
+namespace Infraestructure
 {
     public class MongoService : IMongoService
     {

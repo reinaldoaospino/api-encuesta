@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace infraestructure.Entities
+namespace Infraestructure.Entities
 {
     public class SurveyEntity
     {

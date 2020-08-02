@@ -1,4 +1,4 @@
-﻿namespace infraestructure.Entities
+﻿namespace Infraestructure.Entities
 {
     public class SurveyOptionEntity
     {

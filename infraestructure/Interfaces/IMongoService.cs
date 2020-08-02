@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Collections.Generic;
 
-namespace infraestructure.Interfaces
+namespace Infraestructure.Interfaces
 {
     public interface IMongoService
     {

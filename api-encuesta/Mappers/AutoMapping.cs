@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Domain.Entities;
 using api_encuesta.Models;
-using infraestructure.Entities;
+using Infraestructure.Entities;
 
 namespace api_encuesta.Mappers
 {
