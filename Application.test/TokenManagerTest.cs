@@ -1,8 +1,8 @@
-using Application.Managers;
-using Domain.Entities;
-using Domain.Interfaces.Application;
 using Moq;
 using Xunit;
+using Domain.Entities;
+using Application.Managers;
+using Domain.Interfaces.Application;
 
 namespace Application.test
 {
