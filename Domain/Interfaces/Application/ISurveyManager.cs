@@ -1,6 +1,6 @@
 ﻿using Domain.Entities;
-using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace Domain.Interfaces.Application
 {

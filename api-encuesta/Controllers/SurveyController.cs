@@ -1,11 +1,11 @@
-﻿using api_encuesta.Models;
-using AutoMapper;
+﻿using AutoMapper;
 using Domain.Entities;
-using Domain.Interfaces.Application;
-using Microsoft.AspNetCore.Authorization;
+using api_encuesta.Models;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Threading.Tasks;
+using Domain.Interfaces.Application;
+using Microsoft.AspNetCore.Authorization;
 
 namespace api_encuesta.Controllers
 {

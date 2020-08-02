@@ -1,8 +1,8 @@
-﻿using MongoDB.Driver;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
 using System.Threading.Tasks;
 using infraestructure.Interfaces;
 using System.Collections.Generic;
-using MongoDB.Bson;
 
 namespace infraestructure
 {

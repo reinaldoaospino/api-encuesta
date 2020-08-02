@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
-using api_encuesta.Models;
 using Domain.Entities;
+using api_encuesta.Models;
 using infraestructure.Entities;
-using System.Collections;
-using System.Collections.Generic;
 
 namespace api_encuesta.Mappers
 {
@@ -17,7 +15,6 @@ namespace api_encuesta.Mappers
             CreateMap<SurveyOptionModel, SurveyOption>().ReverseMap();
             CreateMap<SurveyEntity, Survey>().ReverseMap();
             CreateMap<SurveyOptionEntity, SurveyOption>().ReverseMap();
-            //CreateMap<IEnumerable<SurveyModel>, IEnumerable<Survey>>().ReverseMap();
         }
     }
 }

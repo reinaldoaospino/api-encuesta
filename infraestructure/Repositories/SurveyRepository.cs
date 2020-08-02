@@ -1,11 +1,11 @@
-﻿using Domain.Entities;
+﻿using AutoMapper;
+using Domain.Entities;
 using System.Threading.Tasks;
+using infraestructure.Entities;
+using System.Collections.Generic;
 using infraestructure.Interfaces;
 using Domain.Interfaces.Infraestructure;
 using Microsoft.Extensions.Configuration;
-using System.Collections.Generic;
-using AutoMapper;
-using infraestructure.Entities;
 
 namespace infraestructure.Repositories
 {

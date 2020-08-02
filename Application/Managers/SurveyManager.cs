@@ -1,9 +1,8 @@
 ﻿using Domain.Entities;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 using Domain.Interfaces.Application;
 using Domain.Interfaces.Infraestructure;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace Application.Managers
 {

@@ -1,14 +1,14 @@
-﻿using Application;
-using Domain.Interfaces.Application;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.IdentityModel.Tokens;
-using infraestructure.Interfaces;
-using System;
+﻿using System;
 using System.Text;
+using Application;
 using MongoDB.Driver;
-using Domain.Interfaces.Infraestructure;
-using infraestructure.Repositories;
 using Application.Managers;
+using infraestructure.Interfaces;
+using infraestructure.Repositories;
+using Domain.Interfaces.Application;
+using Microsoft.IdentityModel.Tokens;
+using Domain.Interfaces.Infraestructure;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace infraestructure.ioc
 {
