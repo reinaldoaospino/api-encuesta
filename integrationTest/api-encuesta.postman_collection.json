@@ -1,0 +1,301 @@
+{
+	"info": {
+		"_postman_id": "39424f2c-499f-4288-9cfd-332639f3e3ec",
+		"name": "api-encuesta",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Token",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "38af36af-2ded-4b42-a99c-50de990ccef9",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "7005fe61-4159-4038-9661-b850579cca90",
+								"exec": [
+									"pm.test(\"Respuesta 200 (ok)\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var res = JSON.parse(responseBody);\r",
+									"\r",
+									"pm.test(\"Devuelve Token Acceso\", () =>  \r",
+									"    pm.expect(res.Token, \"No hay token Acceso\").to.not.be.null);\r",
+									"\r",
+									"pm.environment.set(\r",
+									"    \"token\",\r",
+									"    res.token);\r",
+									"    \r",
+									"console.info(\"se obtuvo el token en \" + pm.response.responseTime + \" ms\");\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"User\": \"{{user}}\",\n\t\"Password\": \"{{password}}\"\n}"
+						},
+						"url": {
+							"raw": "{{urlBase}}/api/authentication/token",
+							"host": [
+								"{{urlBase}}"
+							],
+							"path": [
+								"api",
+								"authentication",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Surveys",
+			"item": [
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d4d5044-e45f-4a9d-a1ff-1deb7421c1f1",
+								"exec": [
+									"pm.test(\"Respuesta 200 (ok)\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"question\": \"¿Que lenguaje usas?\",\r\n    \"Options\": [\r\n        {\r\n            \"Option\": \"C\"\r\n        },\r\n        {\r\n            \"Option\": \"Python\"\r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "{{urlBase}}/api/survey",
+							"host": [
+								"{{urlBase}}"
+							],
+							"path": [
+								"api",
+								"survey"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dc02b966-c669-49f2-b486-38ee9c4f02ef",
+								"exec": [
+									"pm.test(\"Respuesta 200 (ok)\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"var res = JSON.parse(responseBody);\r",
+									"\r",
+									"var id = res[0].id;\r",
+									"var question = res[0].question;\r",
+									"var options = res[0].options\r",
+									"\r",
+									"pm.environment.set(\r",
+									"    \"idSurvey\",\r",
+									"    id\r",
+									")\r",
+									"\r",
+									"pm.environment.set(\r",
+									"    \"question\",\r",
+									"    question\r",
+									")\r",
+									"\r",
+									"pm.environment.set(\r",
+									"    \"options\",\r",
+									"   options);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlBase}}/api/survey",
+							"host": [
+								"{{urlBase}}"
+							],
+							"path": [
+								"api",
+								"survey"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "621684ce-eccc-4322-a656-4d7cc40ba221",
+								"exec": [
+									"pm.test(\"Respuesta 200 (ok)\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"{{idSurvey}}\",\r\n    \"question\": \"¿Que lenguaje usas?\",\r\n    \"Options\": [\r\n        {\r\n            \"Option\": \"C#\"\r\n        },\r\n        {\r\n            \"Option\": \"React\"\r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "{{urlBase}}/api/survey",
+							"host": [
+								"{{urlBase}}"
+							],
+							"path": [
+								"api",
+								"survey"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "53c82c76-0d51-446a-986c-8337766e9186",
+								"exec": [
+									"pm.test(\"Respuesta 200 (ok)\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{urlBase}}/api/survey/{{idSurvey}}",
+							"host": [
+								"{{urlBase}}"
+							],
+							"path": [
+								"api",
+								"survey",
+								"{{idSurvey}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
