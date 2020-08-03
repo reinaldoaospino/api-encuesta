@@ -14,19 +14,19 @@ namespace Infraestructure.Repositories
         private readonly IMongoService _service;
         private readonly IMapper _mapper;
 
-        private readonly string _tableName;
+        private readonly string _collectionName;
 
         public SurveyRepository(IMongoService service,
             IConfiguration configuration, IMapper mapper )
         {
             _service = service;
             _mapper = mapper;
-            _tableName = configuration["AppSettings:surveyTable"];
+            _collectionName = configuration["AppSettings:surveyCollection"];
         }
 
         public async Task<IEnumerable<Survey>> Get()
         {
-            var surveyEntiity = await _service.Get<SurveyEntity>(_tableName);
+            var surveyEntiity = await _service.Get<SurveyEntity>(_collectionName);
 
             var survey = _mapper.Map<IEnumerable<Survey>>(surveyEntiity);
 
@@ -37,19 +37,19 @@ namespace Infraestructure.Repositories
         {
             var surveyEntiity = _mapper.Map<SurveyEntity>(survey);
 
-            await _service.Create(_tableName, surveyEntiity);
+            await _service.Create(_collectionName, surveyEntiity);
         }
 
         public async Task Update(Survey survey)
         {
             var surveyEntiity = _mapper.Map<SurveyEntity>(survey);
 
-            await _service.Update(_tableName,surveyEntiity.Id, surveyEntiity);
+            await _service.Update(_collectionName, surveyEntiity.Id, surveyEntiity);
         }
 
         public async Task Delete(string id)
         {
-            await _service.Delete<SurveyEntity>(_tableName, id);
+            await _service.Delete<SurveyEntity>(_collectionName, id);
         }
     }
 }

@@ -24,14 +24,16 @@ namespace infraestructure.ioc
 
         private static void ConfigureApplicationModule(IServiceCollection services)
         {
-            services.AddScoped<ITokenManager, TokenManager>();
             services.AddScoped<IJwtService, JwtService>();
+            services.AddScoped<ITokenManager, TokenManager>();
             services.AddScoped<ISurveyManager, SurveyManager>();
+            services.AddScoped<IAnswerManager, AnswerManager>();
         }
 
         public static void ConfigureInfraestructureModule(IServiceCollection services)
         {
             services.AddScoped<ISurveyRepository, SurveyRepository>();
+            services.AddScoped<IAnswerRepository, AnswerRepository>();
             services.AddScoped<IMongoService>(provider => new MongoService("Surveys", new MongoClient()));
         }
 

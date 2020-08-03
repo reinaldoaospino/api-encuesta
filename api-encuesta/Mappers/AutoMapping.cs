@@ -10,11 +10,15 @@ namespace api_encuesta.Mappers
         public AutoMapping()
         {
             CreateMap<SurveyModel, Survey>().ReverseMap();
+            CreateMap<AnswerModel, Answer>().ReverseMap();
             CreateMap<SurveyEntity, Survey>().ReverseMap();
+            CreateMap<AnswerEntity, Answer>().ReverseMap();
             CreateMap<TokenRequestModel, TokenRequest>().ReverseMap();
             CreateMap<SurveyOptionModel, SurveyOption>().ReverseMap();
             CreateMap<SurveyOptionEntity, SurveyOption>().ReverseMap();
             CreateMap<TokenResponseModel, TokenResponse>().ReverseMap();
+            CreateMap<AnswerSelectedModel, AnswerSelected>().ReverseMap();
+            CreateMap<AnswerSelectedEntity, AnswerSelected>().ReverseMap();
         }
     }
 }
