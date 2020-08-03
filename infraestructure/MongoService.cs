@@ -25,6 +25,15 @@ namespace Infraestructure
             return document.ToEnumerable();
         }
 
+        public async Task<T> Get<T>(string collectionName, string id)
+        {
+            var collection = _db.GetCollection<T>(collectionName);
+            var filter = Builders<T>.Filter.Eq("_id", id);
+            var data = await collection.FindAsync(filter);
+
+            return data.FirstOrDefault();
+        }
+
         public async Task Create<T>(string collectionName, T record)
         {
             var collection = _db.GetCollection<T>(collectionName);

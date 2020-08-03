@@ -33,6 +33,15 @@ namespace Infraestructure.Repositories
             return survey;
         }
 
+        public async Task<Survey> Get(string id)
+        {
+            var surveyEntiity = await _service.Get<SurveyEntity>(_collectionName,id);
+
+            var survey = _mapper.Map<Survey>(surveyEntiity);
+
+            return survey;
+        }
+
         public async Task Create(Survey survey)
         {
             var surveyEntiity = _mapper.Map<SurveyEntity>(survey);
