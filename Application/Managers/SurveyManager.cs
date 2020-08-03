@@ -23,6 +23,11 @@ namespace Application.Managers
         public async Task Create(Survey survey)
         {
             survey.Id = survey.GenerateGuid();
+
+            foreach (var option in survey.Options)
+            {
+                option.Id = survey.GenerateGuid();
+            }
       
             await _repository.Create(survey);
         }
