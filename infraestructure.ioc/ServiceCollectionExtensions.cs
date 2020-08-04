@@ -9,11 +9,13 @@ using Infraestructure.Interfaces;
 using Infraestructure.Repositories;
 using Domain.Interfaces.Application;
 using Microsoft.IdentityModel.Tokens;
+using System.Diagnostics.CodeAnalysis;
 using Domain.Interfaces.Infraestructure;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace infraestructure.ioc
 {
+    [ExcludeFromCodeCoverage]
     public static class ServiceCollectionExtensions
     {
         public static void AddModules( this IServiceCollection services)

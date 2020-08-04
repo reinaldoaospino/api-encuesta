@@ -2,9 +2,11 @@
 using Domain.Entities;
 using api_encuesta.Models;
 using Infraestructure.Entities;
+using System.Diagnostics.CodeAnalysis;
 
 namespace api_encuesta.Mappers
 {
+    [ExcludeFromCodeCoverage]
     public class AutoMapping : Profile
     {
         public AutoMapping()

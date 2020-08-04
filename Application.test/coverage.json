@@ -1,0 +1,421 @@
+{
+  "Application.dll": {
+    "C:\\Users\\Usuario\\source\\repos\\api-encuesta\\Application\\JwtService.cs": {
+      "Application.JwtService": {
+        "System.String Application.JwtService::GenerateToken(System.String)": {
+          "Lines": {
+            "14": 1,
+            "15": 1,
+            "16": 1,
+            "17": 1,
+            "18": 1,
+            "19": 1,
+            "20": 1,
+            "22": 1,
+            "23": 1,
+            "24": 1,
+            "25": 1,
+            "26": 1,
+            "27": 1,
+            "29": 1,
+            "30": 1,
+            "31": 1
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\Usuario\\source\\repos\\api-encuesta\\Application\\Services\\DescriptionGeneratorService.cs": {
+      "Application.Services.DescriptionGeneratorService": {
+        "System.Void Application.Services.DescriptionGeneratorService::GenerateOptionsDescriptions(System.Collections.Generic.IEnumerable`1<Domain.Entities.SurveyOption>,Domain.Entities.AnswerSelected)": {
+          "Lines": {
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "41": 0,
+            "42": 0
+          },
+          "Branches": [
+            {
+              "Line": 38,
+              "Offset": 44,
+              "EndOffset": 46,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 38,
+              "Offset": 44,
+              "EndOffset": 63,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void Application.Services.DescriptionGeneratorService::.ctor(Domain.Interfaces.Infraestructure.ISurveyRepository)": {
+          "Lines": {
+            "14": 0,
+            "15": 0,
+            "16": 0,
+            "17": 0
+          },
+          "Branches": []
+        }
+      },
+      "Application.Services.DescriptionGeneratorService/<GenerateSurveysDescriptions>d__2": {
+        "System.Void Application.Services.DescriptionGeneratorService/<GenerateSurveysDescriptions>d__2::MoveNext()": {
+          "Lines": {
+            "20": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "25": 0,
+            "26": 0,
+            "28": 0,
+            "30": 0,
+            "31": 0,
+            "33": 0
+          },
+          "Branches": [
+            {
+              "Line": 21,
+              "Offset": 313,
+              "EndOffset": 46,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 25,
+              "Offset": 216,
+              "EndOffset": 218,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 25,
+              "Offset": 216,
+              "EndOffset": 235,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 21,
+              "Offset": 313,
+              "EndOffset": 318,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Users\\Usuario\\source\\repos\\api-encuesta\\Application\\Managers\\AnswerManager.cs": {
+      "Application.Managers.AnswerManager": {
+        "System.Void Application.Managers.AnswerManager::.ctor(Domain.Interfaces.Infraestructure.IAnswerRepository,Domain.Interfaces.Infraestructure.ISurveyRepository,Domain.Interfaces.Application.IDescriptionGeneratorService)": {
+          "Lines": {
+            "15": 4,
+            "16": 4,
+            "17": 4,
+            "18": 4,
+            "19": 4,
+            "20": 4,
+            "21": 4
+          },
+          "Branches": []
+        }
+      },
+      "Application.Managers.AnswerManager/<Get>d__4": {
+        "System.Void Application.Managers.AnswerManager/<Get>d__4::MoveNext()": {
+          "Lines": {
+            "24": 1,
+            "25": 1,
+            "26": 1
+          },
+          "Branches": []
+        }
+      },
+      "Application.Managers.AnswerManager/<Create>d__5": {
+        "System.Void Application.Managers.AnswerManager/<Create>d__5::MoveNext()": {
+          "Lines": {
+            "29": 1,
+            "30": 1,
+            "32": 1,
+            "34": 1,
+            "35": 1
+          },
+          "Branches": []
+        }
+      },
+      "Application.Managers.AnswerManager/<Update>d__6": {
+        "System.Void Application.Managers.AnswerManager/<Update>d__6::MoveNext()": {
+          "Lines": {
+            "38": 1,
+            "39": 1,
+            "40": 1
+          },
+          "Branches": []
+        }
+      },
+      "Application.Managers.AnswerManager/<Delete>d__7": {
+        "System.Void Application.Managers.AnswerManager/<Delete>d__7::MoveNext()": {
+          "Lines": {
+            "43": 1,
+            "44": 1,
+            "45": 1
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\Usuario\\source\\repos\\api-encuesta\\Application\\Managers\\SurveyManager.cs": {
+      "Application.Managers.SurveyManager": {
+        "System.Void Application.Managers.SurveyManager::.ctor(Domain.Interfaces.Infraestructure.ISurveyRepository)": {
+          "Lines": {
+            "13": 4,
+            "14": 4,
+            "15": 4,
+            "16": 4
+          },
+          "Branches": []
+        }
+      },
+      "Application.Managers.SurveyManager/<Get>d__2": {
+        "System.Void Application.Managers.SurveyManager/<Get>d__2::MoveNext()": {
+          "Lines": {
+            "19": 1,
+            "20": 1,
+            "21": 1
+          },
+          "Branches": []
+        }
+      },
+      "Application.Managers.SurveyManager/<Create>d__3": {
+        "System.Void Application.Managers.SurveyManager/<Create>d__3::MoveNext()": {
+          "Lines": {
+            "24": 1,
+            "25": 1,
+            "27": 5,
+            "28": 1,
+            "29": 1,
+            "30": 1,
+            "32": 1,
+            "33": 1
+          },
+          "Branches": [
+            {
+              "Line": 27,
+              "Offset": 126,
+              "EndOffset": 66,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            },
+            {
+              "Line": 27,
+              "Offset": 126,
+              "EndOffset": 128,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "Application.Managers.SurveyManager/<Update>d__4": {
+        "System.Void Application.Managers.SurveyManager/<Update>d__4::MoveNext()": {
+          "Lines": {
+            "36": 1,
+            "37": 1,
+            "38": 1
+          },
+          "Branches": []
+        }
+      },
+      "Application.Managers.SurveyManager/<Delete>d__5": {
+        "System.Void Application.Managers.SurveyManager/<Delete>d__5::MoveNext()": {
+          "Lines": {
+            "41": 1,
+            "42": 1,
+            "43": 1
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\Usuario\\source\\repos\\api-encuesta\\Application\\Managers\\TokenManager.cs": {
+      "Application.Managers.TokenManager": {
+        "Domain.Entities.TokenResponse Application.Managers.TokenManager::GetToken(Domain.Entities.TokenRequest)": {
+          "Lines": {
+            "16": 1,
+            "17": 1,
+            "19": 1,
+            "20": 1,
+            "21": 1,
+            "22": 1,
+            "23": 1
+          },
+          "Branches": []
+        },
+        "System.Void Application.Managers.TokenManager::.ctor(Domain.Interfaces.Application.IJwtService)": {
+          "Lines": {
+            "10": 1,
+            "11": 1,
+            "12": 1,
+            "13": 1
+          },
+          "Branches": []
+        }
+      }
+    }
+  },
+  "Domain.dll": {
+    "C:\\Users\\Usuario\\source\\repos\\api-encuesta\\Domain\\Exceptions\\EntityNotFoundException.cs": {
+      "Domain.Exceptions.EntityNotFoundException`1": {
+        "System.Void Domain.Exceptions.EntityNotFoundException`1::.ctor(System.String)": {
+          "Lines": {
+            "10": 0,
+            "11": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\Usuario\\source\\repos\\api-encuesta\\Domain\\Entities\\Answer.cs": {
+      "Domain.Entities.Answer": {
+        "System.String Domain.Entities.Answer::get_Id()": {
+          "Lines": {
+            "8": 10
+          },
+          "Branches": []
+        },
+        "System.String Domain.Entities.Answer::get_User()": {
+          "Lines": {
+            "9": 9
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IEnumerable`1<Domain.Entities.AnswerSelected> Domain.Entities.Answer::get_AnswerSelected()": {
+          "Lines": {
+            "10": 28
+          },
+          "Branches": []
+        },
+        "System.String Domain.Entities.Answer::GenerateGuid()": {
+          "Lines": {
+            "13": 1,
+            "14": 1,
+            "15": 1
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\Usuario\\source\\repos\\api-encuesta\\Domain\\Entities\\AnswerSelected.cs": {
+      "Domain.Entities.AnswerSelected": {
+        "System.String Domain.Entities.AnswerSelected::get_IdQuestion()": {
+          "Lines": {
+            "5": 9
+          },
+          "Branches": []
+        },
+        "System.String Domain.Entities.AnswerSelected::get_QuestionDescription()": {
+          "Lines": {
+            "6": 9
+          },
+          "Branches": []
+        },
+        "System.String Domain.Entities.AnswerSelected::get_IdOption()": {
+          "Lines": {
+            "7": 9
+          },
+          "Branches": []
+        },
+        "System.String Domain.Entities.AnswerSelected::get_OptionDescription()": {
+          "Lines": {
+            "8": 9
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\Usuario\\source\\repos\\api-encuesta\\Domain\\Entities\\Survey.cs": {
+      "Domain.Entities.Survey": {
+        "System.String Domain.Entities.Survey::get_Id()": {
+          "Lines": {
+            "8": 10
+          },
+          "Branches": []
+        },
+        "System.String Domain.Entities.Survey::get_Question()": {
+          "Lines": {
+            "9": 9
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IEnumerable`1<Domain.Entities.SurveyOption> Domain.Entities.Survey::get_Options()": {
+          "Lines": {
+            "10": 10
+          },
+          "Branches": []
+        },
+        "System.String Domain.Entities.Survey::GenerateGuid()": {
+          "Lines": {
+            "13": 2,
+            "14": 2,
+            "15": 2
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\Usuario\\source\\repos\\api-encuesta\\Domain\\Entities\\SurveyOption.cs": {
+      "Domain.Entities.SurveyOption": {
+        "System.String Domain.Entities.SurveyOption::get_Id()": {
+          "Lines": {
+            "5": 0
+          },
+          "Branches": []
+        },
+        "System.String Domain.Entities.SurveyOption::get_Option()": {
+          "Lines": {
+            "6": 9
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\Usuario\\source\\repos\\api-encuesta\\Domain\\Entities\\TokenRequest.cs": {
+      "Domain.Entities.TokenRequest": {
+        "System.String Domain.Entities.TokenRequest::get_User()": {
+          "Lines": {
+            "5": 4
+          },
+          "Branches": []
+        },
+        "System.String Domain.Entities.TokenRequest::get_Password()": {
+          "Lines": {
+            "7": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\Usuario\\source\\repos\\api-encuesta\\Domain\\Entities\\TokenResponse.cs": {
+      "Domain.Entities.TokenResponse": {
+        "System.String Domain.Entities.TokenResponse::get_Token()": {
+          "Lines": {
+            "5": 4
+          },
+          "Branches": []
+        }
+      }
+    }
+  }
+}
