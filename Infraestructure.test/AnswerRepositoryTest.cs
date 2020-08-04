@@ -69,14 +69,15 @@ namespace Infraestructure.test
             Assert.NotNull(result);
 
             var actual = result.ToList().FirstOrDefault();
-            var expect = answerList.FirstOrDefault();
+            var expected = answerList.FirstOrDefault();
 
-            Assert.Equal(expect.Id, actual.Id);
-            Assert.Equal(expect.User, actual.User);
-            Assert.Equal(expect.AnswerSelected.FirstOrDefault().IdOption, actual.AnswerSelected.FirstOrDefault().IdOption);
-            Assert.Equal(expect.AnswerSelected.FirstOrDefault().OptionDescription, actual.AnswerSelected.FirstOrDefault().OptionDescription);
-            Assert.Equal(expect.AnswerSelected.FirstOrDefault().IdQuestion, actual.AnswerSelected.FirstOrDefault().IdQuestion);
-            Assert.Equal(expect.AnswerSelected.FirstOrDefault().QuestionDescription, actual.AnswerSelected.FirstOrDefault().QuestionDescription);
+            Assert.Equal(expected.Id, actual.Id);
+            Assert.Equal(expected.User, actual.User);
+            Assert.Equal(expected.AnswerSelected.FirstOrDefault().IdOption, actual.AnswerSelected.FirstOrDefault().IdOption);
+            Assert.Equal(expected.AnswerSelected.FirstOrDefault().OptionDescription, actual.AnswerSelected.FirstOrDefault().OptionDescription);
+            Assert.Equal(expected.AnswerSelected.FirstOrDefault().IdQuestion, actual.AnswerSelected.FirstOrDefault().IdQuestion);
+            Assert.Equal(expected.AnswerSelected.FirstOrDefault().QuestionDescription, actual.AnswerSelected.FirstOrDefault().QuestionDescription);
+
             _mockService.Verify();
             _mockMapper.Verify();
         }
