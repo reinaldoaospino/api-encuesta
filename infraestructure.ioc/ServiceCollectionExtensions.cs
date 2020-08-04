@@ -4,6 +4,7 @@ using Application;
 using MongoDB.Driver;
 using Infraestructure;
 using Application.Managers;
+using Application.Services;
 using Infraestructure.Interfaces;
 using Infraestructure.Repositories;
 using Domain.Interfaces.Application;
@@ -34,6 +35,7 @@ namespace infraestructure.ioc
         {
             services.AddScoped<ISurveyRepository, SurveyRepository>();
             services.AddScoped<IAnswerRepository, AnswerRepository>();
+            services.AddScoped<ISurveyVerificationService, SurveyVerificationService>();
             services.AddScoped<IMongoService>(provider => new MongoService("Surveys", new MongoClient()));
         }
 
