@@ -35,7 +35,7 @@ namespace infraestructure.ioc
         {
             services.AddScoped<ISurveyRepository, SurveyRepository>();
             services.AddScoped<IAnswerRepository, AnswerRepository>();
-            services.AddScoped<ISurveyVerificationService, SurveyVerificationService>();
+            services.AddScoped<IDescriptionGeneratorService, DescriptionGeneratorService>();
             services.AddScoped<IMongoService>(provider => new MongoService("Surveys", new MongoClient()));
         }
 

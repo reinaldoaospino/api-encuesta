@@ -1,5 +1,4 @@
-﻿using System;
-using Domain.Entities;
+﻿using Domain.Entities;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Domain.Interfaces.Application;
@@ -10,14 +9,16 @@ namespace Application.Managers
     public class AnswerManager : IAnswerManager
     {
         private readonly IAnswerRepository _asnwerRepository;
-        private readonly ISurveyVerificationService _surveyVerificationService;
+        private readonly ISurveyRepository _surveyRepository;
+        private readonly IDescriptionGeneratorService _surveyVerificationService;
 
-        public AnswerManager(IAnswerRepository asnwerRepository, ISurveyVerificationService surveyVerificationService)
+        public AnswerManager(IAnswerRepository asnwerRepository, ISurveyRepository surveyRepository,
+            IDescriptionGeneratorService surveyVerificationService)
         {
             _asnwerRepository = asnwerRepository;
+            _surveyRepository = surveyRepository;
             _surveyVerificationService = surveyVerificationService;
         }
-
 
         public async Task<IEnumerable<Answer>> Get()
         {
@@ -26,12 +27,7 @@ namespace Application.Managers
 
         public async Task Create(Answer answer)
         {
-            var verification = await _surveyVerificationService.VerificateSurvey(answer.AnswerSelected);
-
-            if (!verification)
-            {
-                throw new ApplicationException();
-            }
+            await _surveyVerificationService.GenerateSurveysDescriptions(answer.AnswerSelected);
 
             answer.Id = answer.GenerateGuid();
 

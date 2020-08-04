@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 namespace Domain.Interfaces.Application
 {
-    public interface ISurveyVerificationService
+    public interface IDescriptionGeneratorService
     {
-        Task<bool> VerificateSurvey(IEnumerable<AnswerSelected> answersSelected);
+        Task GenerateSurveysDescriptions(IEnumerable<AnswerSelected> answersSelected);
     }
 }

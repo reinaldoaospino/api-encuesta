@@ -51,7 +51,5 @@ namespace Infraestructure.Repositories
         {
             await _service.Delete<AnswerEntity>(_collectionName, id);
         }
-
-
     }
 }
