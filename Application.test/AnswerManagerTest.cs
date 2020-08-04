@@ -1,14 +1,12 @@
-﻿using Application.Managers;
+﻿using Moq;
+using Xunit;
+using System.Linq;
 using Domain.Entities;
+using Application.Managers;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 using Domain.Interfaces.Application;
 using Domain.Interfaces.Infraestructure;
-using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit;
 
 namespace Application.test
 {
