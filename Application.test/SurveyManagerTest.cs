@@ -1,7 +1,9 @@
 ﻿using Moq;
 using Xunit;
+using System;
 using System.Linq;
 using Domain.Entities;
+using Domain.Exceptions;
 using Application.Managers;
 using System.Threading.Tasks;
 using System.Collections.Generic;
@@ -79,11 +81,28 @@ namespace Application.test
             //?Given
             var survey = GetSurvey();
 
+            _mockRepository.Setup(x => x.Get(survey.Id))
+                .ReturnsAsync(survey)
+                .Verifiable();
+
             //?When
             await _surveyManager.Update(survey);
 
             //?Then
             _mockRepository.Verify(t => t.Update(It.Is<Survey>(e => MessageeIsWellUpdated(e, survey))), Times.Once);
+        }
+
+        [Fact]
+        public async Task GivenSurvey_WhenUpdate_ThenThrowEntityNotFoundException()
+        {
+            //?Given
+            var survey = GetSurvey();
+
+            //?When
+            Func<Task> update = () => _surveyManager.Update(survey);
+
+            //?Then
+            await Assert.ThrowsAsync<EntityNotFoundException<Survey>>(update);
         }
 
         [Fact]

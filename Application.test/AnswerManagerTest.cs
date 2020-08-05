@@ -1,7 +1,9 @@
 ﻿using Moq;
 using Xunit;
+using System;
 using System.Linq;
 using Domain.Entities;
+using Domain.Exceptions;
 using Application.Managers;
 using System.Threading.Tasks;
 using System.Collections.Generic;
@@ -73,7 +75,7 @@ namespace Application.test
         }
 
         [Fact]
-        public async Task GivenSurvey_WhenCreate_ThenCreateSuccessful()
+        public async Task GivenAnswer_WhenCreate_ThenCreateSuccessful()
         {
             //?Given
             var answer = GetAnswer();
@@ -86,16 +88,35 @@ namespace Application.test
         }
 
         [Fact]
-        public async Task GivenSurvey_WhenUpdate_ThenUpdateSuccessful()
+        public async Task GivenAnswer_WhenUpdate_ThenUpdateSuccessful()
         {
             //?Given
             var answer = GetAnswer();
+
+
+            _mockAnswerReposotory.Setup(x => x.Get(answer.Id))
+                .ReturnsAsync(answer)
+                .Verifiable();
 
             //?When
             await _answerManager.Update(answer);
 
             //?Then
             _mockAnswerReposotory.Verify(t => t.Update(It.Is<Answer>(e => AnswerIsWellUpdated(e, answer))), Times.Once);
+            _mockAnswerReposotory.VerifyAll();
+        }
+
+        [Fact]
+        public async Task GivenAnswer_WhenUpdate_ThenThrowEntityNotFoundException()
+        {
+            //?Given
+            var answer = GetAnswer();
+
+            //?When
+            Func<Task> update = () => _answerManager.Update(answer);
+
+            //?Then
+            await Assert.ThrowsAsync<EntityNotFoundException<Answer>>(update);
         }
 
 
@@ -107,6 +128,7 @@ namespace Application.test
 
             _mockAnswerReposotory.Setup(x => x.Delete(id))
                 .Verifiable();
+
 
             //?When
             await _answerManager.Delete(id);
