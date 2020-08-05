@@ -46,7 +46,7 @@ namespace Api_encuesta.test
 
 
             _tokenManager.Setup(x => x.GetToken(It.IsAny<TokenRequest>()))
-                .Returns(tokenReponse)
+                .ReturnsAsync(tokenReponse)
                 .Verifiable();
 
             _mapper.Setup(x => x.Map<TokenResponseModel>(tokenReponse))

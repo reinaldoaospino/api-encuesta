@@ -3,6 +3,8 @@ using Xunit;
 using Domain.Entities;
 using Application.Managers;
 using Domain.Interfaces.Application;
+using System.Threading.Tasks;
+using Domain.Interfaces.Infraestructure;
 
 namespace Application.test
 {
@@ -10,16 +12,18 @@ namespace Application.test
     public class TokenManagerTest
     {
         private readonly Mock<IJwtService> _jtwService;
+        private readonly Mock<IAuthRepository> _mockRepository;
         private ITokenManager _tokenManager;
 
         public TokenManagerTest()
         {
             _jtwService = new Mock<IJwtService>();
-            _tokenManager = new TokenManager(_jtwService.Object);
+            _mockRepository = new Mock<IAuthRepository>();
+            _tokenManager = new TokenManager(_jtwService.Object, _mockRepository.Object);
         }
 
         [Fact]
-        public void GivenTokenRequest_WhenGetToken_ThenTokenGenerateSuccessul()
+        public async Task GivenTokenRequest_WhenGetToken_ThenTokenGenerateSuccessul()
         {
             //?GIVEN
             var tokenExpected = "1234AA";
@@ -40,7 +44,7 @@ namespace Application.test
                 .Verifiable();
 
                 //?WHEN
-            var result = _tokenManager.GetToken(request);
+            var result = await _tokenManager.GetToken(request);
 
             //?Then
             Assert.Equal(expected.Token, result.Token);

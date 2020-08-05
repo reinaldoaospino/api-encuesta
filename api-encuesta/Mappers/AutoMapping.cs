@@ -17,6 +17,8 @@ namespace api_encuesta.Mappers
             CreateMap<AnswerModel, Answer>().ReverseMap();
             CreateMap<SurveyEntity, Survey>().ReverseMap();
             CreateMap<AnswerEntity, Answer>().ReverseMap();
+            CreateMap<AuthUserModel, AuthUser>().ReverseMap();
+            CreateMap<AuthUserEntity, AuthUser>().ReverseMap();
             CreateMap<TokenRequestModel, TokenRequest>().ReverseMap();
             CreateMap<SurveyOptionModel, SurveyOption>().ReverseMap();
             CreateMap<SurveyOptionEntity, SurveyOption>().ReverseMap();

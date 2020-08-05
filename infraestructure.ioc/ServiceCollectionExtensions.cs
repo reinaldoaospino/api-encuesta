@@ -12,16 +12,17 @@ using Microsoft.IdentityModel.Tokens;
 using System.Diagnostics.CodeAnalysis;
 using Domain.Interfaces.Infraestructure;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
 
 namespace infraestructure.ioc
 {
     [ExcludeFromCodeCoverage]
     public static class ServiceCollectionExtensions
     {
-        public static void AddModules( this IServiceCollection services)
+        public static void AddModules( this IServiceCollection services, IConfiguration configuration)
         {
             ConfigureApplicationModule(services);
-            ConfigureJwtToken(services);
+            ConfigureJwtToken(services,configuration);
             ConfigureInfraestructureModule(services);
         }
 
@@ -36,6 +37,7 @@ namespace infraestructure.ioc
 
         public static void ConfigureInfraestructureModule(IServiceCollection services)
         {
+            services.AddScoped<IAuthRepository, AuthRepository>();        
             services.AddScoped<IEmailRepository, EmailRepository>();
             services.AddScoped<ISurveyRepository, SurveyRepository>();
             services.AddScoped<IAnswerRepository, AnswerRepository>();
@@ -43,8 +45,9 @@ namespace infraestructure.ioc
             services.AddScoped<IMongoService>(provider => new MongoService("Surveys", new MongoClient()));
         }
 
-        private static void ConfigureJwtToken(IServiceCollection services)
+        private static void ConfigureJwtToken(IServiceCollection services, IConfiguration configuration)
         {
+            var key = configuration["AppSettings:SecretKey"];
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = "JwtBearer";
@@ -56,7 +59,7 @@ namespace infraestructure.ioc
                     JwtBearerOptions.TokenValidationParameters = new TokenValidationParameters
                     {
                         ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("this is my test key")),
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(key)),
                         ValidateIssuer = false,
                         ValidateAudience = false,
                         ValidateLifetime = true,

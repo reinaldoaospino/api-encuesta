@@ -1,9 +1,11 @@
 ﻿using Domain.Entities;
+using System.Threading.Tasks;
 
 namespace Domain.Interfaces.Application
 {
     public interface ITokenManager
     {
-       TokenResponse GetToken(TokenRequest request);
+        Task<TokenResponse> GetToken(TokenRequest request);
+        Task Create(AuthUser authUser);
     }
 }
