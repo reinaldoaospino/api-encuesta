@@ -13,5 +13,23 @@ namespace Domain.Entities
         {
             return Guid.NewGuid().ToString();
         }
+
+        public void Update(Survey survey)
+        {
+            Question = survey.Question;
+
+            foreach (var option in Options)
+            {
+                foreach (var surveyOption in survey.Options)
+                {
+                    if(option.Option != surveyOption.Option)
+                    {
+                        option.Id = survey.GenerateGuid();
+                        option.Option = surveyOption.Option;
+                    }
+                }
+            }
+
+        }
     }
 }

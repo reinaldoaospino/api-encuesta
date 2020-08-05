@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using Domain.Interfaces.Application;
 using Domain.Interfaces.Infraestructure;
+using Domain.Exceptions;
 
 namespace Application.Managers
 {
@@ -34,7 +35,16 @@ namespace Application.Managers
 
         public async Task Update(Survey survey)
         {
-            await _repository.Update(survey);
+            var exixtingSurvey = await _repository.Get(survey.Id);
+
+            var noExists = exixtingSurvey == null;
+
+            if(noExists)
+                throw new EntityNotFoundException<Survey>(survey.Id);
+
+            exixtingSurvey.Update(survey);
+
+            await _repository.Update(exixtingSurvey);
         }
 
         public async Task Delete(string id)

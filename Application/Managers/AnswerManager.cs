@@ -1,9 +1,9 @@
 ﻿using Domain.Entities;
+using Domain.Exceptions;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Domain.Interfaces.Application;
 using Domain.Interfaces.Infraestructure;
-using Domain.Exceptions;
 
 namespace Application.Managers
 {
