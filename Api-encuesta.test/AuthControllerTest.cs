@@ -6,6 +6,7 @@ using api_encuesta.Models;
 using api_encuesta.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using Domain.Interfaces.Application;
+using System.Threading.Tasks;
 
 namespace Api_encuesta.test
 {
@@ -23,7 +24,7 @@ namespace Api_encuesta.test
         }
 
         [Fact]
-        public void GivenTokenRequest_WhenGetToken_ThenGetTokenSuccessful()
+        public async Task GivenTokenRequest_WhenGetToken_ThenGetTokenSuccessful()
         {
             //?Given
             var tokenExpected = "1234AA";
@@ -53,7 +54,7 @@ namespace Api_encuesta.test
                 .Returns(expected);
 
             //?When
-            var actual =  _authController.GetToken(request);
+            var actual =  await _authController.GetToken(request);
 
             //?Then
             Assert.IsAssignableFrom<OkObjectResult>(actual);
