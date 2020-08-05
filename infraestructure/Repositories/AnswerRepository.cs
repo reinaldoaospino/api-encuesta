@@ -33,6 +33,15 @@ namespace Infraestructure.Repositories
             return answer;
         }
 
+        public async Task<Answer> Get(string id)
+        {
+            var answerEntiity = await _service.Get<Answer>(_collectionName, id);
+
+            var answer = _mapper.Map<Answer>(answerEntiity);
+
+            return answer;
+        }
+
         public async Task Create(Answer answer)
         {
             var answerEntity = _mapper.Map<AnswerEntity>(answer);

@@ -13,5 +13,10 @@ namespace Domain.Entities
         {
             return Guid.NewGuid().ToString();
         }
+
+        public void Update(Answer answertoUpdate)
+        {
+            User = answertoUpdate.User;
+        }
     }
 }
