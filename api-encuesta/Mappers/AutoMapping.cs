@@ -11,6 +11,8 @@ namespace api_encuesta.Mappers
     {
         public AutoMapping()
         {
+            CreateMap<EmailModel, Email>().ReverseMap();
+            CreateMap<EmailEntity, Email>().ReverseMap();
             CreateMap<SurveyModel, Survey>().ReverseMap();
             CreateMap<AnswerModel, Answer>().ReverseMap();
             CreateMap<SurveyEntity, Survey>().ReverseMap();

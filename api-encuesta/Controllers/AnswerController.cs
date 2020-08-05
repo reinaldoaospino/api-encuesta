@@ -25,9 +25,9 @@ namespace api_encuesta.Controllers
 
         public async Task<ActionResult<IEnumerable<AnswerModel>>> Get()
         {
-            var answer = await _answerManager.Get();
-            var answerModel = _mapper.Map<IEnumerable<AnswerModel>>(answer);
-            return Ok(answerModel);
+            var answers = await _answerManager.Get();
+            var answersModel = _mapper.Map<IEnumerable<AnswerModel>>(answers);
+            return Ok(answersModel);
         }
 
         [HttpPost]

@@ -28,6 +28,7 @@ namespace infraestructure.ioc
         private static void ConfigureApplicationModule(IServiceCollection services)
         {
             services.AddScoped<IJwtService, JwtService>();
+            services.AddScoped<IEmailManager, EmailManager>();
             services.AddScoped<ITokenManager, TokenManager>();
             services.AddScoped<ISurveyManager, SurveyManager>();
             services.AddScoped<IAnswerManager, AnswerManager>();
@@ -35,6 +36,7 @@ namespace infraestructure.ioc
 
         public static void ConfigureInfraestructureModule(IServiceCollection services)
         {
+            services.AddScoped<IEmailRepository, EmailRepository>();
             services.AddScoped<ISurveyRepository, SurveyRepository>();
             services.AddScoped<IAnswerRepository, AnswerRepository>();
             services.AddScoped<IDescriptionGeneratorService, DescriptionGeneratorService>();
