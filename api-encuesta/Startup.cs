@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using System.Diagnostics.CodeAnalysis;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using api_encuesta.Middlewares;
 
 namespace api_encuesta
 {
@@ -37,7 +38,7 @@ namespace api_encuesta
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseMiddleware<ExceptionHandlerMiddleware>();
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthentication();

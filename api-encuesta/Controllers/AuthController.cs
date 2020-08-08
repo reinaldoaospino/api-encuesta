@@ -27,20 +27,11 @@ namespace api_encuesta.Controllers
         [Route("token")]
         public async Task<IActionResult> GetToken(TokenRequestModel request)
         {
-            try
-            {
-                var tokenDto = _mapper.Map<TokenRequest>(request);
+            var tokenDto = _mapper.Map<TokenRequest>(request);
+            var token = await _tokenManager.GetToken(tokenDto);
+            var tokenReponse = _mapper.Map<TokenResponseModel>(token);
 
-                var token = await _tokenManager.GetToken(tokenDto);
-
-                var tokenReponse = _mapper.Map<TokenResponseModel>(token);
-
-                return Ok(tokenReponse);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex);
-            }
+            return Ok(tokenReponse);
         }
 
         [HttpPost]

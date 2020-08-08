@@ -18,7 +18,6 @@ namespace Application
         }
         public string GenerateToken(string user)
         {
-            var key = new byte[32];
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name,user),

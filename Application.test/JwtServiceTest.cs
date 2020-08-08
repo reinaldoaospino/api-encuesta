@@ -1,6 +1,7 @@
-﻿using Xunit;
+﻿using Moq;
+using Xunit;
+using System;
 using Domain.Interfaces.Application;
-using Moq;
 using Microsoft.Extensions.Configuration;
 
 namespace Application.test
@@ -13,6 +14,7 @@ namespace Application.test
         public JwtServiceTest()
         {
             _mockConfiguration = new Mock<IConfiguration>();
+            _mockConfiguration.SetupGet(x => x[It.Is<string>(s => s == "AppSettings:SecretKey")]).Returns(Guid.NewGuid().ToString());
             _jwtService = new JwtService(_mockConfiguration.Object);
         }
 
