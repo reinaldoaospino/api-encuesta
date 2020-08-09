@@ -57,7 +57,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"User\": \"{{user}}\",\n\t\"Password\": \"{{password}}\"\n}"
+							"raw": "{\n\t\"User\": \"F38B52D2F75690AC7A42AAC45478A4E7BC9620F3FB4BE1E1309405FD57B065CC\",\n\t\"Password\": \"397BF64BC14A3E104E60355B6A8D8EC0B10C50A2BB8D6C3884CEF42BAF0B204\"\n}"
 						},
 						"url": {
 							"raw": "{{urlBase}}/api/authentication/token",
@@ -72,13 +72,7 @@
 						}
 					},
 					"response": []
-				}
-			],
-			"protocolProfileBehavior": {}
-		},
-		{
-			"name": "Surveys",
-			"item": [
+				},
 				{
 					"name": "Create",
 					"event": [
@@ -117,28 +111,34 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"question\": \"¿Que lenguaje usas?\",\r\n    \"Options\": [\r\n        {\r\n            \"Option\": \"C\"\r\n        },\r\n        {\r\n            \"Option\": \"Python\"\r\n        }\r\n    ]\r\n}"
+							"raw": "{\r\n \"User\": \"F38B52D2F75690AC7A42AAC45478A4E7BC9620F3FB4BE1E1309405FD57B065CC\",\r\n \"Password\": \"397BF64BC14A3E1040E60355B6A8D8EC0B10C50A2BB8D6C3884CEF42BAF0B204\"\r\n}"
 						},
 						"url": {
-							"raw": "{{urlBase}}/api/survey",
+							"raw": "{{urlBase}}/api/authentication",
 							"host": [
 								"{{urlBase}}"
 							],
 							"path": [
 								"api",
-								"survey"
+								"authentication"
 							]
 						}
 					},
 					"response": []
-				},
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Surveys",
+			"item": [
 				{
-					"name": "Get",
+					"name": "Get Copy",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"id": "dc02b966-c669-49f2-b486-38ee9c4f02ef",
+								"id": "f38b6afd-10fc-4f90-b54f-bf43d504c00b",
 								"exec": [
 									"pm.test(\"Respuesta 200 (ok)\", () => {\r",
 									"    pm.response.to.have.status(200);\r",
@@ -149,21 +149,30 @@
 									"\r",
 									"var id = res[0].id;\r",
 									"var question = res[0].question;\r",
-									"var options = res[0].options\r",
+									"var idOption = res[0].options[0].id\r",
+									"var idQuestion = res[0].options[0].id\r",
+									"\r",
 									"\r",
 									"pm.environment.set(\r",
 									"    \"idSurvey\",\r",
 									"    id\r",
-									")\r",
+									");\r",
 									"\r",
 									"pm.environment.set(\r",
 									"    \"question\",\r",
 									"    question\r",
-									")\r",
+									");\r",
 									"\r",
 									"pm.environment.set(\r",
-									"    \"options\",\r",
-									"   options);\r",
+									"    \"idOption\",\r",
+									"   idOption\r",
+									");\r",
+									"\r",
+									"pm.environment.set(\r",
+									"    \"idQuestion\",\r",
+									"   idQuestion\r",
+									");\r",
+									"\r",
 									""
 								],
 								"type": "text/javascript"
@@ -234,8 +243,81 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"{{idSurvey}}\",\r\n    \"question\": \"¿Que lenguaje usas?\",\r\n    \"Options\": [\r\n        {\r\n            \"Option\": \"C#\"\r\n        },\r\n        {\r\n            \"Option\": \"React\"\r\n        }\r\n    ]\r\n}"
+							"raw": "{\r\n    \"id\": \"{{idSurvey}}\",\r\n    \"question\": \"¿Que lenguaje usas?\",\r\n    \"Options\": [\r\n        {\r\n            \"Option\": \"C\"\r\n        },\r\n        {\r\n            \"Option\": \"React\"\r\n        }\r\n    ]\r\n}"
 						},
+						"url": {
+							"raw": "{{urlBase}}/api/survey",
+							"host": [
+								"{{urlBase}}"
+							],
+							"path": [
+								"api",
+								"survey"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dc02b966-c669-49f2-b486-38ee9c4f02ef",
+								"exec": [
+									"pm.test(\"Respuesta 200 (ok)\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"var res = JSON.parse(responseBody);\r",
+									"\r",
+									"var id = res[0].id;\r",
+									"var question = res[0].question;\r",
+									"var idOption = res[0].options[0].id\r",
+									"var idQuestion = res[0].options[0].id\r",
+									"\r",
+									"\r",
+									"pm.environment.set(\r",
+									"    \"idSurvey\",\r",
+									"    id\r",
+									");\r",
+									"\r",
+									"pm.environment.set(\r",
+									"    \"question\",\r",
+									"    question\r",
+									");\r",
+									"\r",
+									"pm.environment.set(\r",
+									"    \"idOption\",\r",
+									"   idOption\r",
+									");\r",
+									"\r",
+									"pm.environment.set(\r",
+									"    \"idQuestion\",\r",
+									"   idQuestion\r",
+									");\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
 						"url": {
 							"raw": "{{urlBase}}/api/survey",
 							"host": [
@@ -288,6 +370,318 @@
 								"api",
 								"survey",
 								"{{idSurvey}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Answers",
+			"item": [
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d23320b6-76ee-439e-9378-242621a88a9b",
+								"exec": [
+									"pm.test(\"Respuesta 200 (ok)\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"User\": \"Reinaldo\",\r\n   \"AnswerSelected\": [\r\n       {\r\n           \"IdQuestion\": \"{{idSurvey}}\",\r\n           \"IdOption\": \"{{idOption}}\"\r\n       }\r\n   ]\r\n}"
+						},
+						"url": {
+							"raw": "{{urlBase}}/api/answer",
+							"host": [
+								"{{urlBase}}"
+							],
+							"path": [
+								"api",
+								"answer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a24298fc-deef-4463-a4cc-9046a4d3453e",
+								"exec": [
+									"pm.test(\"Respuesta 200 (ok)\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"var res = JSON.parse(responseBody);\r",
+									"\r",
+									"\r",
+									"var id = res[0].id\r",
+									"\r",
+									"pm.environment.set(\r",
+									"    \"idAnswer\",\r",
+									"    id\r",
+									")\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlBase}}/api/answer",
+							"host": [
+								"{{urlBase}}"
+							],
+							"path": [
+								"api",
+								"answer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c51c9fb9-ee15-4d66-b75b-a9a939c65262",
+								"exec": [
+									"pm.test(\"Respuesta 200 (ok)\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\": \"{{idAnswer}}\",\r\n   \"User\": \"Bixaida\"\r\n}"
+						},
+						"url": {
+							"raw": "{{urlBase}}/api/answer",
+							"host": [
+								"{{urlBase}}"
+							],
+							"path": [
+								"api",
+								"answer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9bc7e1d9-8437-437f-b60b-4b8ec1fe3cda",
+								"exec": [
+									"pm.test(\"Respuesta 200 (ok)\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{urlBase}}/api/answer/{{idAnswer}}",
+							"host": [
+								"{{urlBase}}"
+							],
+							"path": [
+								"api",
+								"answer",
+								"{{idAnswer}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Email",
+			"item": [
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8217a592-2e2e-4a59-bf1c-c6583fccbb6a",
+								"exec": [
+									"pm.test(\"Respuesta 200 (ok)\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"UserName\": \"ariana.arias@gmail.com\"\r\n\r\n}"
+						},
+						"url": {
+							"raw": "{{urlBase}}/api/email",
+							"host": [
+								"{{urlBase}}"
+							],
+							"path": [
+								"api",
+								"email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6f7d4bd8-0321-442d-894b-af5460264af1",
+								"exec": [
+									"pm.test(\"Respuesta 200 (ok)\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlBase}}/api/email",
+							"host": [
+								"{{urlBase}}"
+							],
+							"path": [
+								"api",
+								"email"
 							]
 						}
 					},
