@@ -27,24 +27,9 @@ namespace Api_encuesta.test
         public async Task GivenTokenRequest_WhenGetToken_ThenGetTokenSuccessful()
         {
             //?Given
-            var tokenExpected = "1234AA";
-
-            var request = new TokenRequestModel
-            {
-                User = "reinaldo",
-                Password = "1234"
-            };
-
-            var expected = new TokenResponseModel
-            {
-                 Token = tokenExpected
-            };
-
-            var tokenReponse = new TokenResponse
-            {
-                Token = tokenExpected
-            };
-
+            var request = new TokenRequestModel();
+            var tokenReponse = new TokenResponse();
+            var expected = new TokenResponseModel();
 
             _tokenManager.Setup(x => x.GetToken(It.IsAny<TokenRequest>()))
                 .ReturnsAsync(tokenReponse)

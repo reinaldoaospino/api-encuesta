@@ -30,42 +30,8 @@ namespace Api_encuesta.test
         public async Task WhenGetAnswer_ThenGetSuccessful()
         {
             //?Given
-            var answerList = new List<Answer>
-            {
-                new Answer
-                {
-                    User = "reinaldo",
-                    Id = "1234",
-                    AnswerSelected = new List<AnswerSelected>
-                    {
-                       new AnswerSelected
-                       {
-                            IdOption = "1234",
-                            OptionDescription="this is a description",
-                            IdQuestion = "1234",
-                            QuestionDescription = "this is a decription"
-                       }
-                    }
-                }
-            };
-            var expected = new List<AnswerModel>
-            {
-                new AnswerModel
-                {
-                    User = "reinaldo",
-                    Id = "1234",
-                    AnswerSelected = new List<AnswerSelectedModel>
-                    {
-                       new AnswerSelectedModel
-                       {
-                            IdOption = "1234",
-                            OptionDescription="this is a description",
-                            IdQuestion = "1234",
-                            QuestionDescription = "this is a decription"
-                       }
-                    }
-                }
-            };
+            var answerList = new List<Answer>();
+            var expected = new List<AnswerModel>();
 
             _mockManager.Setup(x => x.Get())
                 .ReturnsAsync(answerList)
