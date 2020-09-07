@@ -27,18 +27,25 @@ namespace Application.Services
 
                 answer.QuestionDescription = survey.Question;
 
-                GenerateOptionsDescriptions(survey.Options, answer);
+                if(answer.IdOption != "0")
+                {
+                    GenerateOptionsDescriptions(survey.Options, answer);
+                }
+
             }
 
         }
 
         private void GenerateOptionsDescriptions(IEnumerable<SurveyOption> surveysOptions, AnswerSelected answerSelected)
         {
+
             var exist = surveysOptions.ToList().Find(x => x.Id == answerSelected.IdOption);
+
             if (exist == null)
                 throw new EntityNotFoundException<SurveyOption>(answerSelected.IdOption);
 
             answerSelected.OptionDescription = exist.Option;
+
         }
     }
 }
