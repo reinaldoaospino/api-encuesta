@@ -23,7 +23,7 @@ namespace infraestructure.ioc
         {
             ConfigureApplicationModule(services);
             ConfigureJwtToken(services,configuration);
-            ConfigureInfraestructureModule(services);
+            ConfigureInfraestructureModule(services,configuration);
         }
 
         private static void ConfigureApplicationModule(IServiceCollection services)
@@ -35,14 +35,15 @@ namespace infraestructure.ioc
             services.AddScoped<IAnswerManager, AnswerManager>();
         }
 
-        public static void ConfigureInfraestructureModule(IServiceCollection services)
+        public static void ConfigureInfraestructureModule(IServiceCollection services, IConfiguration configuration)
         {
+            var connectionString = configuration["AppSettings:connectionString"];
             services.AddScoped<IAuthRepository, AuthRepository>();        
             services.AddScoped<IEmailRepository, EmailRepository>();
             services.AddScoped<ISurveyRepository, SurveyRepository>();
             services.AddScoped<IAnswerRepository, AnswerRepository>();
             services.AddScoped<IDescriptionGeneratorService, DescriptionGeneratorService>();
-            services.AddScoped<IMongoService>(provider => new MongoService("Surveys", new MongoClient()));
+            services.AddScoped<IMongoService>(provider => new MongoService("Surveys",new MongoClient(connectionString)));
         }
 
         private static void ConfigureJwtToken(IServiceCollection services, IConfiguration configuration)
